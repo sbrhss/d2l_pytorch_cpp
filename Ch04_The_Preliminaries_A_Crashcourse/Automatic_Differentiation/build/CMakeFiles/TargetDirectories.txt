@@ -1,0 +1,3 @@
+/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch04_The_Preliminaries_A_Crashcourse/Automatic_Differentiation/build/CMakeFiles/rebuild_cache.dir
+/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch04_The_Preliminaries_A_Crashcourse/Automatic_Differentiation/build/CMakeFiles/edit_cache.dir
+/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch04_The_Preliminaries_A_Crashcourse/Automatic_Differentiation/build/CMakeFiles/autodiff.dir
