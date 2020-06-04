@@ -1,0 +1,58 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5ac65/fast && /usr/bin/make -f CMakeFiles/cmTC_5ac65.dir/build.make CMakeFiles/cmTC_5ac65.dir/build
+make[1]: Entering directory '/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5ac65.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5ac65.dir/src.cxx.o -c /home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5ac65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ac65.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5ac65.dir/src.cxx.o  -o cmTC_5ac65 
+/usr/bin/ld: CMakeFiles/cmTC_5ac65.dir/src.cxx.o: in function `main':
+src.cxx:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.cxx:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5ac65.dir/build.make:87: cmTC_5ac65] Error 1
+make[1]: Leaving directory '/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_5ac65/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c8109/fast && /usr/bin/make -f CMakeFiles/cmTC_c8109.dir/build.make CMakeFiles/cmTC_c8109.dir/build
+make[1]: Entering directory '/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c8109.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c8109.dir/CheckFunctionExists.cxx.o -c /home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_c8109
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8109.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_c8109.dir/CheckFunctionExists.cxx.o  -o cmTC_c8109  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c8109.dir/build.make:87: cmTC_c8109] Error 1
+make[1]: Leaving directory '/home/saber/Desktop/GitHub/Pytorch_CPP/d2l_pytorch_cpp/Ch07_Deep_Learning_Computation/LeNET/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c8109/fast] Error 2
+
+
+
